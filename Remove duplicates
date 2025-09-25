@@ -1,0 +1,23 @@
+import java.util.HashSet;
+import java.util.Scanner;
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        HashSet<Integer> set = new HashSet<>();
+        int idx = 0;
+        for (int i = 0; i < n; i++) {
+            if (!set.contains(arr[i])) {
+                set.add(arr[i]);
+                arr[idx++] = arr[i];
+            }
+        }
+        for (int i = 0; i < idx; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
